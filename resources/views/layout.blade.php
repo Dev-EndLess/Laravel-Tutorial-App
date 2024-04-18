@@ -26,7 +26,7 @@
 
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
-        <a href="index.html"><img class="w-32 mt-2" src="images/laravel-logo.png" alt="" class="logo" /></a>
+        <a href="/"><img class="w-32 mt-2" src="/images/laravel-logo.png" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg mt-2">
             <li>
                 <a href="register.html" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
@@ -39,7 +39,7 @@
     </nav>
 
     <main>
-        @yield('contant')
+        @yield('content')
     </main>
 
     <footer

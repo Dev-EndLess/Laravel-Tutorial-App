@@ -31,18 +31,18 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ### Artisan Command
 
-- Run local server: php artisan serve
-- Create Model: php artisan make:model ExampleName
-- Create Controller: php artisan make:controller ExampleController
-- Create migration: php artisan make:migration ExampleNameMigration
-- Create middleware: php artisan make:middleware ExampleNameMiddleware
-- Create seeder: php artisan make:seeder ExampleNameSeeder
-- Show all defined routes: php artisan route:list
-- Delete cache: php artisan cache:clear
-- Run migrations: php artisan migrate
-- Create new database and run all migrations: php artisan migrate:fresh
-- Create new database, run migrations, and seed: php artisan migrate:refresh --seed
-- Create basic authentication interface: php artisan make:auth
+- Run local server: `php artisan serve`
+- Create Model: `php artisan make:model` ExampleName
+- Create Controller: `php artisan make:controller` ExampleController
+- Create migration: `php artisan make:migration` ExampleNameMigration
+- Create middleware: `php artisan make:middleware` ExampleNameMiddleware
+- Create seeder: `php artisan make:seeder` ExampleNameSeeder
+- Show all defined routes: `php artisan route:list`
+- Delete cache: `php artisan cache:clear`
+- Run migrations: `php artisan migrate`
+- Create new database and run all migrations: `php artisan migrate:fresh`
+- Create new database, run migrations, and seed: `php artisan migrate:refresh --seed`
+- Create basic authentication interface: `php artisan make:auth`
 
 ## License
 

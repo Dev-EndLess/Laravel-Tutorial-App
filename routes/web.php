@@ -11,10 +11,13 @@
 |
 */
 
-use App\Http\Controllers\ListingController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Band;
 use App\Models\Listing;
+use App\Http\Controllers\BandController;
+use App\Http\Controllers\ListingController;
 
 // Common Resource Routes:
 // index - Show all listings
@@ -26,16 +29,16 @@ use App\Models\Listing;
 // destroy - Delete listing  
 
 // All Listing
-Route::get('/', [ListingController::class,'index']);
+Route::get('/', [BandController::class, 'index']);
 
 // Show Create Form 
-Route::get('/listings/create', [ListingController::class, 'create']);
+Route::get('/bands/create', [BandController::class, 'create']);
 
 // Store Listing data
-Route::post('/listings', [ListingController::class, 'store']);
+Route::post('/bands', [BandController::class, 'store']);
 
 // Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
+Route::get('/bands/{band}', [BandController::class, 'show']);
 
 
 

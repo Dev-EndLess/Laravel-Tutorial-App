@@ -28,8 +28,8 @@ class BandController extends Controller
   public function store(Request $request)
   {
     $formFields = $request->validate([
-      'name' => 'required',
-      'ticket' => ['required', Rule::unique('bands', 'ticket')],
+      'name' => ['required', Rule::unique('bands', 'ticket')],
+      'ticket' => 'required',
       'location' => 'required',
       'email' => ['required', 'email'],
       'website' => 'required',
@@ -39,7 +39,7 @@ class BandController extends Controller
 
     Band::Create($formFields);
 
-    return redirect('/');
+    return redirect('/')->with('success', 'Event Created Successfully!');
   }
 
   // Create event

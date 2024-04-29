@@ -13,7 +13,7 @@
                 @csrf
                 <div class="mb-6">
                     <label for="name" class="inline-block text-lg mb-2">Band Name</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name" />
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name" value={{old('name')}} />
                     @error('name')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -21,7 +21,7 @@
 
                 <div class="mb-6">
                     <label for="ticket" class="inline-block text-lg mb-2">Ticket Price</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="ticket"
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="ticket" value={{old('ticket')}}
                         placeholder="Example: 20€" />
                     @error('ticket')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -30,7 +30,7 @@
 
                 <div class="mb-6">
                     <label for="location" class="inline-block text-lg mb-2">Event Location</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location" value={{old('location')}}
                         placeholder="Example: Bologna, Estragon Club" />
                     @error('location')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -39,7 +39,7 @@
 
                 <div class="mb-6">
                     <label for="email" class="inline-block text-lg mb-2">Contact Email</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="email" />
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="email" value={{old('email')}} />
                     @error('email')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -49,7 +49,7 @@
                     <label for="website" class="inline-block text-lg mb-2">
                         Website URL
                     </label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" />
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" value={{old('website')}} />
                     @error('website')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -59,7 +59,7 @@
                     <label for="tags" class="inline-block text-lg mb-2">
                         Tags (Genre)
                     </label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" value={{old('tags')}}
                         placeholder="Example: Death Metal, Melodic Death, Techinical Death" />
                     @error('tags')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -80,7 +80,7 @@
                     <label for="description" class="inline-block text-lg mb-2">
                         Band Description
                     </label>
-                    <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
+                    <textarea class="border border-gray-200 rounded p-2 w-full" name="description" value={{old('description')}} rows="10"
                         placeholder="Include tasks, requirements, salary, etc"></textarea>
                         @error('description')
                         <p class="text-red-500 text-base mt-1">{{ $message }}</p>

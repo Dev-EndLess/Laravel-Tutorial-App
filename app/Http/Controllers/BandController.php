@@ -12,7 +12,7 @@ class BandController extends Controller
   public function index()
   {
     return view('bands.index', [
-      'bands' => Band::latest()->filter(request(['tag', 'search']))->get()
+      'bands' => Band::latest()->filter(request(['tag', 'search']))->paginate(3)
     ]);
   }
 

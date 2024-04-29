@@ -9,4 +9,6 @@
     @foreach ($bands as $band)
         <x-band-card :band="$band" />
     @endforeach
+
+    <div class="mx-12 mt-6">{{$bands->links()}}</div>
 </x-layout>

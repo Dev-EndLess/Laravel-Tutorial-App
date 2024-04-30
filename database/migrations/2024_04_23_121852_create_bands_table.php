@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('website');
             $table->string('tags');
-            $table->longText('description')->nullable();
+            $table->string('description');
             $table->timestamps();
         });
     }

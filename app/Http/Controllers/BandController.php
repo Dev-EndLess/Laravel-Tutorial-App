@@ -16,7 +16,7 @@ class BandController extends Controller
     ]);
   }
 
-  // Show single listing
+  // Show single band
   public function show(Band $band)
   {
     return view('bands.show', [
@@ -24,7 +24,13 @@ class BandController extends Controller
     ]);
   }
 
-  // Store listing data
+  // Create event
+  public function create()
+  {
+    return view('bands.create');
+  }
+
+  // Store band data
   public function store(Request $request)
   {
     $formFields = $request->validate([
@@ -34,22 +40,62 @@ class BandController extends Controller
       'email' => ['required', 'email'],
       'website' => 'required',
       'tags' => 'required',
-      'description' => 'nullable',
-      'logo' => 'nullable' 
+      'description' => '',
+      'logo' => '',
     ]);
 
-    if($request->hasFile('logo')) {
-      $formFields['logo'] = $request->file('logo')->store('logos', 'public'); 
+
+    if ($request->filled('description')) {
+      $formFields['description'] = $request->input('description');
+    } else {
+      $formFields['description'] = '';
     }
 
-    Band::Create($formFields);
+    if ($request->hasFile('logo')) {
+      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    }
 
-    return redirect('/')->with('success', 'Event Created Successfully!');
+    Band::create($formFields);
+
+    return redirect("/")->with('success', 'Event Created Successfully!');
   }
 
-  // Create event
-  public function create()
+  // Show Edit Form
+
+  public function edit(Band $band)
   {
-    return view('bands.create');
+    return view('bands.edit', ['band' => $band]);
   }
+
+  // Update band data
+  public function update(Request $request, Band $band)
+  {
+    $formFields = $request->validate([
+      'name' => 'required',
+      'ticket' => 'required',
+      'location' => 'required',
+      'email' => ['required', 'email'],
+      'website' => 'required',
+      'tags' => 'required',
+      'description' => '',
+      'logo' => '',
+    ]);
+
+    if ($request->filled('description')) {
+      $formFields['description'] = $request->input('description');
+    } else {
+      $formFields['description'] = '';
+    }
+
+    if ($request->hasFile('logo')) {
+      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    }
+
+    $band->update($formFields);
+
+    return redirect("/bands/{$band->id}")->with('success', 'Event Updated Successfully!');
+  }
+
+
+
 }

@@ -9,17 +9,10 @@
     <div class="mx-12">
         <x-card class="mx-0">
             <div class="flex flex-col items-center justify-center text-center">
-                <img class="w-48 mr-6 mb-6" src="{{ asset('images/no-image.png') }}" alt="no-image" />
+                <img class="w-48 mr-6 mb-6" src="{{$band->logo ? asset('storage/' . $band->logo) : asset('/images/no-image.png')}}" alt="band-image" />
                 <h3 class="text-2xl mb-2">{{ $band->name }}</h3>
                 <div class="text-xl font-bold mb-4">{{ $band->ticket }}</div>
-                <ul class="flex">
-                    <li class="bg-black text-white rounded-xl px-3 py-1 mr-2">
-                        <a href="#">MetalCore</a>
-                    </li>
-                    <li class="bg-black text-white rounded-xl px-3 py-1 mr-2">
-                        <a href="#">Alternative Metal</a>
-                    </li>
-                </ul>
+                <x-band-tags :tags="$band->tags" />
                 <div class="text-lg my-4">
                     <i class="fa-solid fa-location-dot"></i> {{ $band->location }}
                 </div>

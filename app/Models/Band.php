@@ -9,7 +9,7 @@ class Band extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'ticket', 'location', 'website', 'email', 'description', 'tags'];
+  protected $fillable = ['name', 'ticket', 'location', 'website', 'email', 'description', 'tags', 'logo'];
 
   public function scopeFilter($query, array $filters)
   {

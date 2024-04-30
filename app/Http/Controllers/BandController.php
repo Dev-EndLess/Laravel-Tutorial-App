@@ -34,8 +34,13 @@ class BandController extends Controller
       'email' => ['required', 'email'],
       'website' => 'required',
       'tags' => 'required',
-      'description' => 'nullable', 
+      'description' => 'nullable',
+      'logo' => 'nullable' 
     ]);
+
+    if($request->hasFile('logo')) {
+      $formFields['logo'] = $request->file('logo')->store('logos', 'public'); 
+    }
 
     Band::Create($formFields);
 

@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('bands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('logo')->nullable();
             $table->string('ticket');
             $table->string('location');
             $table->string('email');
             $table->string('website');
             $table->string('tags');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

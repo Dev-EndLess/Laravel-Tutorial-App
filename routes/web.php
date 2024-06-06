@@ -12,11 +12,12 @@
 */
 
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Models\Band;
 use App\Models\Listing;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
 // Common Resource Routes:
@@ -49,9 +50,11 @@ Route::post('/bands', [BandController::class, 'store']);
 // Single Listing
 Route::get('/bands/{band}', [BandController::class, 'show']);
 
+// Show Register/Create Form
+Route::get('/register', [UserController::class, 'create']);
 
-
-
+// Create new Users
+Route::post('/users', [UserController::class, 'store']);
 
 
 

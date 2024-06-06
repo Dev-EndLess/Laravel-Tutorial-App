@@ -41,7 +41,7 @@ class BandController extends Controller
       'website' => 'required',
       'tags' => 'required',
       'description' => '',
-      'logo' => '',
+      'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
 
@@ -78,7 +78,7 @@ class BandController extends Controller
       'website' => 'required',
       'tags' => 'required',
       'description' => '',
-      'logo' => '',
+      'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
     if ($request->filled('description')) {
@@ -96,6 +96,9 @@ class BandController extends Controller
     return redirect("/bands/{$band->id}")->with('success', 'Event Updated Successfully!');
   }
 
-
-
+  // Delete Listing
+  public function destroy(Band $band) {
+    $band->delete();
+    return redirect('/')->with('success', 'Event Deleted Successfully!');
+  }
 }

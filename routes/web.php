@@ -37,8 +37,11 @@ Route::get('/bands/create', [BandController::class, 'create']);
 // Show Edit Form
 Route::get('/bands/{band}/edit', [BandController::class, 'edit']);
 
-// Submit Updated Form
+// Show Updated Form
 Route::put('/bands/{band}', [BandController::class, 'update']);
+
+// Delete Listing
+Route::delete('/bands/{band}', [BandController::class, 'destroy']);
 
 // Store Listing data
 Route::post('/bands', [BandController::class, 'store']);

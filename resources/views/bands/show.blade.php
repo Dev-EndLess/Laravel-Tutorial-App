@@ -2,17 +2,28 @@
     @include('partials._search')
 
     <div class="flex justify-between mx-12">
-    <a href="/"
-        class="bg-gray-50 inline-block border border rounded-lg text-black p-2 mb-4
-        hover:border-red-500 hover:text-red-500"><i
-            class="fa-solid fa-arrow-left hover:text-red-500"></i> <span class="text-xl">Back</span>
-    </a>
-    <a href="/bands/{{ $band->id }}/edit"
-        class="bg-gray-50 ml-12 inline-block border border rounded-lg text-black p-2 mb-4
+        <a href="/"
+            class="bg-gray-50 inline-block border border-black rounded-lg text-black p-2 mb-4
+        hover:border-purple-500 hover:text-purple-500"><i
+                class="fa-solid fa-arrow-left"></i> <span class="text-xl">Back</span>
+        </a>
+        <a href="/bands/{{ $band->id }}/edit"
+            class="bg-gray-50 ml-12 inline-block border border-black rounded-lg text-black p-2 mb-4
         hover:bg-black hover:text-white">
-        <i class="fa-solid fa-pencil"></i> <span class="text-xl">Edit</span>
-    </a>
-</div>
+            <i class="fa-solid fa-pencil"></i> <span class="text-xl">Edit</span>
+        </a>
+
+        <form method="POST" action="/bands/{{ $band->id }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit"
+                class="bg-gray-50 ml-12 inline-block border border-red-500 rounded-lg text-red-500 p-2 mb-4
+            hover:bg-red-500 hover:text-white hover:cursor-pointer">
+                <i class="fa-solid fa-trash"></i> <span class="text-xl">Delete</span>
+            </button>
+        </form>
+
+    </div>
 
     <div class="mx-12">
         <x-card class="mx-0">
@@ -45,8 +56,9 @@
             </div>
         </x-card>
 
-        <x-card class="mt-4 p-2 flex space-x-6">
-
-        </x-card>
+        {{-- <x-card class="mt-4 p-2 flex space-x-6">
+            <a href="/bands/{{ $band->id }}/edit">
+                <i class="fa-solid fa-pencil"></i">Edit</a>
+        </x-card> --}}
     </div>
 </x-layout>

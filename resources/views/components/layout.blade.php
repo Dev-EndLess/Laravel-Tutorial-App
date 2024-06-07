@@ -37,6 +37,12 @@
                     <a href="/bands/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
                         Manage Bands</a>
                 </li>
+                <li>
+                    <form class="inline" method="POST" action="/logout">
+                        @csrf
+                        <button type="submit"><i class="mx-1 fa-solid fa-door-closed"></i>Log Out</button>
+                    </form>
+                </li>
             @else
                 <li>
                     <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>

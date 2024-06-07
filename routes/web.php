@@ -33,34 +33,34 @@ use App\Http\Controllers\ListingController;
 Route::get('/', [BandController::class, 'index']);
 
 // Show Create Form 
-Route::get('/bands/create', [BandController::class, 'create']);
+Route::get('/bands/create', [BandController::class, 'create'])->middleware('auth');
 
 // Show Edit Form
-Route::get('/bands/{band}/edit', [BandController::class, 'edit']);
+Route::get('/bands/{band}/edit', [BandController::class, 'edit'])->middleware('auth');
 
 // Show Updated Form
-Route::put('/bands/{band}', [BandController::class, 'update']);
+Route::put('/bands/{band}', [BandController::class, 'update'])->middleware('auth');
 
 // Delete Listing
-Route::delete('/bands/{band}', [BandController::class, 'destroy']);
+Route::delete('/bands/{band}', [BandController::class, 'destroy'])->middleware('auth');
 
 // Store Listing data
-Route::post('/bands', [BandController::class, 'store']);
+Route::post('/bands', [BandController::class, 'store'])->middleware('auth');
 
 // Single Listing
 Route::get('/bands/{band}', [BandController::class, 'show']);
 
 // Show Register/Create Form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 // Create new Users
 Route::post('/users', [UserController::class, 'store']);
 
 // Log User Out
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // Show Login Form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);

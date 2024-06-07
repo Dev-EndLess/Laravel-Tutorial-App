@@ -24,28 +24,41 @@
     </script>
     <title>LaraMusic | Find Concerts & Events</title>
 </head>
+
 <body class="mb-48">
     <nav class="flex justify-between items-center mb-4">
         <a href="/"><img class="w-32 mt-2" src="/images/laravel-logo.png" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg mt-2">
-            <li>
-                <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
-            </li>
-            <li>
-                <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Login</a>
-            </li>
+            @auth
+                <li>
+                    <span class="font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
+                </li>
+                <li>
+                    <a href="/bands/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
+                        Manage Bands</a>
+                </li>
+            @else
+                <li>
+                    <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
+                </li>
+                <li>
+                    <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Login</a>
+                </li>
+            @endauth
         </ul>
     </nav>
 
     <main>
-        {{$slot}}
+        {{ $slot }}
     </main>
 
     <footer
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
-        <a href="/bands/create" class="absolute top-1/3 right-10 bg-white text-black py-2 px-5 hover:bg-black hover:text-white">Create New Event!</a>
+        <a href="/bands/create"
+            class="absolute top-1/3 right-10 bg-white text-black py-2 px-5 hover:bg-black hover:text-white">Create New
+            Event!</a>
     </footer>
 
     <x-flash-message />

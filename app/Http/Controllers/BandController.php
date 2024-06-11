@@ -72,6 +72,12 @@ class BandController extends Controller
   // Update band data
   public function update(Request $request, Band $band)
   {
+
+    // Make sure login user is owner of the band
+    if ($band->user_id != auth()->id()) {
+      abort(403, 'Unauthorized Action');
+    }
+
     $formFields = $request->validate([
       'name' => 'required',
       'ticket' => 'required',
@@ -100,6 +106,10 @@ class BandController extends Controller
 
   // Delete Listing
   public function destroy(Band $band) {
+    // Make sure login user is owner of the band
+    if ($band->user_id != auth()->id()) { 
+      abort(403, 'Unauthorized Action');
+    }
     $band->delete();
     return redirect('/')->with('success', 'Event Deleted Successfully!');
   }

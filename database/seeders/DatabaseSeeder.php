@@ -73,62 +73,64 @@ class DatabaseSeeder extends Seeder
     {
 
         $user = User::factory()->create([
-            'name' => 'EndlessPain',
-            'email' => 'endlesspain@email.com',
+            'name' => 'UserTest',
+            'email' => 'usertest@gmail.com',
+            'password' => bcrypt('123456'),
         ]);
 
-        Band::factory(6)->create([
-            'user_id' => $user->id
+        Band::create([
+            'name' => 'Testament',
+            'user_id' => $user->id,
+            'ticket' => '30€',
+            'location' => 'Milano, IT',
+            'email' => 'testament@email.com',
+            'website' => 'https://www.testament.com',
+            'tags' => 'Thrash Metal, Groove Metal',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
         ]);
 
-        // Band::create([
-        //     'name' => 'Testament',
-        //     'ticket' => '30€',
-        //     'location' => 'Milano, IT',
-        //     'email' => 'testament@email.com',
-        //     'website' => 'https://www.testament.com',
-        //     'tags' => 'Thrash Metal, Groove Metal',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
+        Band::create([
+            'name' => 'Dark Tranquillity',
+            'user_id' => $user->id,
+            'ticket' => '20€',
+            'location' => 'Helsinki, FI',
+            'email' => 'darktranquillity@email.com',
+            'website' => 'https://www.darktranquillity.com',
+            'tags' => 'Melodic Death Metal, Gothic Metal',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+        ]);
 
-        // Band::create([
-        //     'name' => 'Dark Tranquillity',
-        //     'ticket' => '20€',
-        //     'location' => 'Helsinki, FI',
-        //     'email' => 'darktranquillity@email.com',
-        //     'website' => 'https://www.darktranquillity.com',
-        //     'tags' => 'Melodic Death Metal, Gothic Metal',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
+        Band::create([
+            'name' => 'Mastodon',
+            'user_id' => $user->id,
+            'ticket' => '20€',
+            'location' => 'Boston, MA',
+            'email' => 'mastodon@email.com',
+            'website' => 'https://www.mastodon.com',
+            'tags' => 'Alternative Metal, Sludge Metal',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+        ]);
 
-        // Band::create([
-        //     'name' => 'Mastodon',
-        //     'ticket' => '20€',
-        //     'location' => 'Boston, MA',
-        //     'email' => 'mastodon@email.com',
-        //     'website' => 'https://www.mastodon.com',
-        //     'tags' => 'Alternative Metal, Sludge Metal',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
+        Band::create([
+            'name' => 'Opeth',
+            'user_id' => $user->id,
+            'ticket' => '30€',
+            'location' => 'Monaco, GE',
+            'email' => 'opeth@email.com',
+            'website' => 'https://www.opeth.com',
+            'tags' => 'Progressive Metal, Death Metal',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+        ]);
 
-        // Band::create([
-        //     'name' => 'Opeth',
-        //     'ticket' => '30€',
-        //     'location' => 'Monaco, GE',
-        //     'email' => 'opeth@email.com',
-        //     'website' => 'https://www.opeth.com',
-        //     'tags' => 'Progressive Metal, Death Metal',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
-
-        // Band::create([
-        //     'name' => 'Megadeth',
-        //     'ticket' => '40€',
-        //     'location' => 'Tokyo, JA',
-        //     'email' => 'megadeth@email.com',
-        //     'website' => 'https://www.megadeth.com',
-        //     'tags' => 'Thrash Metal, Speed Metal',
-        //     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-        // ]);
+        Band::create([
+            'name' => 'Megadeth',
+            'user_id' => $user->id,
+            'ticket' => '40€',
+            'location' => 'Tokyo, JA',
+            'email' => 'megadeth@email.com',
+            'website' => 'https://www.megadeth.com',
+            'tags' => 'Thrash Metal, Speed Metal',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+        ]);
     }
 }

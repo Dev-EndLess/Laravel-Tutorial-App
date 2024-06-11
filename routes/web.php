@@ -29,7 +29,7 @@ use App\Http\Controllers\ListingController;
 // update - Update listing
 // destroy - Delete listing  
 
-// All Listing
+// All Bands
 Route::get('/', [BandController::class, 'index']);
 
 // Show Create Form 
@@ -41,13 +41,16 @@ Route::get('/bands/{band}/edit', [BandController::class, 'edit'])->middleware('a
 // Show Updated Form
 Route::put('/bands/{band}', [BandController::class, 'update'])->middleware('auth');
 
-// Delete Listing
+// Delete Bandg
 Route::delete('/bands/{band}', [BandController::class, 'destroy'])->middleware('auth');
 
-// Store Listing data
+// Manage Bands
+Route::get('/bands/manage', [BandController::class, 'manage'])->middleware('auth');
+
+// Store Band data
 Route::post('/bands', [BandController::class, 'store'])->middleware('auth');
 
-// Single Listing
+// Single Band
 Route::get('/bands/{band}', [BandController::class, 'show']);
 
 // Show Register/Create Form

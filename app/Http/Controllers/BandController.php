@@ -55,6 +55,8 @@ class BandController extends Controller
       $formFields['logo'] = $request->file('logo')->store('logos', 'public');
     }
 
+    $formFields['user_id'] = auth()->id();
+
     Band::create($formFields);
 
     return redirect("/")->with('success', 'Event Created Successfully!');
@@ -100,5 +102,10 @@ class BandController extends Controller
   public function destroy(Band $band) {
     $band->delete();
     return redirect('/')->with('success', 'Event Deleted Successfully!');
+  }
+
+  // Manage Bands
+  public function manage() {
+    return view('bands.manage', ['bands' => auth()->user()->bands()->get()]);
   }
 }

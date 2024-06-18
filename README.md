@@ -47,3 +47,9 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+https://github.com/Dev-EndLess/Laravel-Tutorial-App/assets/98015440/8cf7c163-6149-4671-ba2b-f87d933925c1
+
+Username: `TestUser`
+
+Password: `123456` 
